@@ -1,7 +1,5 @@
 require './grid'
 require './robot'
-#grid = Grid.new(5,5)
-#robot = Robot.new(grid)
 
 def parse_instructions
   grid = Grid.new(5,5)
