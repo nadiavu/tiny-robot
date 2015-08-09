@@ -65,31 +65,26 @@ class Robot
     end
   end
 
+  directions = ['NORTH', 'EAST', 'SOUTH', 'WEST']
+
   def right
     return unless placed?
-    case @dir
-    when "NORTH"
-      @dir = "EAST"
-    when "EAST"
-      @dir = "SOUTH"
-    when "SOUTH"
-      @dir = "WEST"
-    when "WEST"
-      @dir = "NORTH"
+    cur = directions.index(@dir)
+    if cur + 1 > 3
+      @dir = directions[0]
+    else   
+      @dir = directions[cur + 1] 
     end
   end
 
   def left
     return unless placed?
-    case @dir
-    when "NORTH"
-      @dir = "WEST"
-    when "EAST"
-      @dir = "NORTH"
-    when "SOUTH"
-      @dir = "EAST"
-    when "WEST"
-      @dir = "SOUTH"
+    directions = directions.reverse
+    cur =  directions.index(@dir)
+    if cur + 1 > 3
+      @dir = directions[0]
+    else
+      @dir = directions[cur + 1]
     end  
   end
 
